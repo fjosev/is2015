@@ -1,7 +1,7 @@
 package iswtp5.model;
 
 public enum DiaSemana {
-    Lunes(1),
+    Lunes(1),   // Disminuir en 1 los valores
     Martes(2),
     Miercoles(3),
     Jueves(4),

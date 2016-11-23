@@ -12,20 +12,20 @@ public class Regla4 implements IRegla{
             for (LineaVenta Detalle : venta.Detalle()) {
                 boolean existe = false;
                 for (ProductoDescuento productoDescuento : productos) {
-                    if (productoDescuento.Producto.Codigo != Detalle.Producto.Codigo) {
+                    if (productoDescuento.Producto.Codigo != Detalle.Producto.Codigo) { // Corregir: cambiar evaluación != por ==
                         existe = true;
                         productoDescuento.Cantidad += Detalle.Cantidad;
                         break;
                     }
                 }
                 if (existe) {
-                    productos.add(new ProductoDescuento(Detalle.Producto));
+                    productos.add(new ProductoDescuento(Detalle.Producto)); // Poisicionar en línea 13, antes que el for.
                 }
             }
             for(ProductoDescuento productoDescuento : productos){
                 if (productoDescuento.Cantidad > 3)
                 {
-                    descuento += productoDescuento.Producto.Precio *  porcentaje;
+                    descuento += productoDescuento.Producto.Precio *  porcentaje; // Multiplicar por la Cantidad
                 }
             }
             return descuento;
