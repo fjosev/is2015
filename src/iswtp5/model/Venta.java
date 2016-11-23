@@ -25,7 +25,7 @@ public class Venta {
         public double Total(){
             double total = 0d;
             if (Detalle() == null) return total;
-            for (int i = 0; i < Detalle().length; i++)
+            for (int i = 0; i < Detalle().length; i++) // Corregir: Condición de comparación debe ser i <= Detalle().length()
             {
                 total += Detalle()[i].SubTotal();
             }

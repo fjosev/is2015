@@ -8,15 +8,15 @@ public class Regla2 implements IRegla
         public double RealizarDescuento(Venta venta)
         {
             double total = venta.Total();
-            if (total > 500 && total < 1000)
+            if (total > 500 && total < 1000) // Corregir por total <= 1000
             {
                 return total * porcentaje1;
             }
-            if (total > 1000 && total < 2500)
+            if (total > 1000 && total < 2500) // Corregir por total <= 2500
             {
-                return total * porcentaje1;
+                return total * porcentaje1; // Corregir por porcentaje2
             }
-            else
+            else // Corregir: agregar if(total > 2500)
             {
                 return total * porcentaje3;
             }
