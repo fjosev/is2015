@@ -18,8 +18,8 @@ public class Regla4 implements IRegla{
                         break;
                     }
                 }
-                if (existe) {
-                    productos.add(new ProductoDescuento(Detalle.Producto)); // Poisicionar en línea 13, antes que el for.
+                if (existe) { // Corregir: if (!existe)
+                    productos.add(new ProductoDescuento(Detalle.Producto));
                 }
             }
             for(ProductoDescuento productoDescuento : productos){

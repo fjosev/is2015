@@ -17,8 +17,8 @@ public class Regla3 implements IRegla{
                             break;
                         }
                     }
-                    if (existe) {
-                        productos.add(new ProductoDescuento(Detalle.Producto)); // Poisicionar en línea 13, antes que el for.
+                    if (existe) { // Corregir: if (!existe)
+                        productos.add(new ProductoDescuento(Detalle.Producto)); 
                     }
                 }
             }
@@ -33,7 +33,7 @@ public class Regla3 implements IRegla{
                 {
                     descuento += productoDescuento.Producto.Precio * productoDescuento.Cantidad * porcentaje;
                 }
-                else // Corregir: Eliminar else
+                else // Corregir: Agregar if( productoDescuento.Cantidad > 5)
                 {
                     descuento += productoDescuento.Producto.Precio * 4 * porcentaje;
                 }
