@@ -8,7 +8,7 @@ public class Regla3 implements IRegla{
             ArrayList<ProductoDescuento> productos = new ArrayList<>();
             for (LineaVenta Detalle : venta.Detalle()) {
                 if ("Lacteos".equals(Detalle.Producto.Rubro.Descripcion) 
-                        && "Verduras".equals(Detalle.Producto.Rubro.Descripcion)) {
+                        || "Verduras".equals(Detalle.Producto.Rubro.Descripcion)) { // 13) Se cambió el and por el or.
                     boolean existe = false;
                     for (ProductoDescuento productoDescuento : productos) {
                         if (productoDescuento.Producto.Codigo != Detalle.Producto.Codigo) {
@@ -17,8 +17,8 @@ public class Regla3 implements IRegla{
                             break;
                         }
                     }
-                    if (existe) {
-                        productos.add(new ProductoDescuento(Detalle.Producto));
+                    if (!existe) { // 14) Se agrego negación para agregar los prod.
+                        productos.add(new ProductoDescuento(Detalle.Producto, Detalle.Cantidad));
                     }
                 }
             }
@@ -31,9 +31,9 @@ public class Regla3 implements IRegla{
                 }
                 else if (productoDescuento.Cantidad > 2 && productoDescuento.Cantidad <= 5)
                 {
-                    descuento += productoDescuento.Producto.Precio * productoDescuento.Cantidad * porcentaje;
+                    descuento += productoDescuento.Producto.Precio * (productoDescuento.Cantidad - 1) * porcentaje; //2) Se resta uno a la cantidad para no hacer descuento por el primero
                 }
-                else 
+                else if (productoDescuento.Cantidad > 5) // 15) Se agrego condición if para casos que cantidad sea mayor a 5
                 {
                     descuento += productoDescuento.Producto.Precio * 4 * porcentaje;
                 }
