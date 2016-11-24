@@ -1,11 +1,11 @@
 package iswtp5.model;
 public class  Negocio {
     private static final Producto[] _productos = new Producto[7];
-    private static final IRegla[] _reglas = new IRegla[7];
+    private static final IRegla[] _reglas = new IRegla[7]; // Como corregimos el array de reglas, deberiamos diminuir a IRegla[4]
 
     public static void Iniciar()
     {
-        _reglas[0] = new Regla1();
+        _reglas[0] = new Regla1(); // Generación de Reglas identicas de manera innecesaria, se puede referenciar al mismo objeto
         _reglas[1] = new Regla2();
         _reglas[2] = new Regla2();
         _reglas[3] = new Regla3();
@@ -15,10 +15,10 @@ public class  Negocio {
 
         Rubro rubro1 = new Rubro(1, "Panaderia");
         Rubro rubro2 = new Rubro(2, "Lacteos");
-        Rubro rubro3 = new Rubro(2, "Verduras");
-        Rubro rubro4 = new Rubro(2, "Limpieza");
+        Rubro rubro3 = new Rubro(2, "Verduras"); // Codigo de Rubro repetido
+        Rubro rubro4 = new Rubro(2, "Limpieza"); // Codigo de Rubro repetido
 
-        _productos[0] = new Producto(1, "1", 50, rubro1);
+        _productos[0] = new Producto(1, "1", 50, rubro1); // En la descripción ingresa codigo de producto
         _productos[1] = new Producto(2, "2", 30, rubro2);
         _productos[2] = new Producto(3, "3", 40, rubro2);
         _productos[3] = new Producto(4, "4", 60, rubro3);
