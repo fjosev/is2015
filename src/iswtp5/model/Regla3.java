@@ -18,7 +18,7 @@ public class Regla3 implements IRegla{
                         }
                     }
                     if (!existe) { // 14) Se agrego negación para agregar los prod.
-                        productos.add(new ProductoDescuento(Detalle.Producto));
+                        productos.add(new ProductoDescuento(Detalle.Producto, Detalle.Cantidad));
                     }
                 }
             }
@@ -31,7 +31,7 @@ public class Regla3 implements IRegla{
                 }
                 else if (productoDescuento.Cantidad > 2 && productoDescuento.Cantidad <= 5)
                 {
-                    descuento += productoDescuento.Producto.Precio * productoDescuento.Cantidad * porcentaje;
+                    descuento += productoDescuento.Producto.Precio * (productoDescuento.Cantidad - 1) * porcentaje; //2) Se resta uno a la cantidad para no hacer descuento por el primero
                 }
                 else if (productoDescuento.Cantidad > 5) // 15) Se agrego condición if para casos que cantidad sea mayor a 5
                 {

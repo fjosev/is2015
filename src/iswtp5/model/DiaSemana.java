@@ -10,7 +10,7 @@ public enum DiaSemana {
     Sabado(5),
     Domingo(6);
     
-    private final int value; // 2) Una variable final debe ser inicializada cuando se declara.
+    private final int value; // Una variable final debe ser inicializada cuando se declara.
     private DiaSemana(int value) {
         this.value = value;
     }

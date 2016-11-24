@@ -7,7 +7,6 @@ public class Regla2 implements IRegla
         @Override
         public double RealizarDescuento(Venta venta)
         {
-            double descuento = 0; // 11) Se agrega descuento para el caso menor a 500
             double total = venta.Total();
             if (total > 500 && total <= 1000) // 7) También incluye a 1000
             {
@@ -22,7 +21,7 @@ public class Regla2 implements IRegla
                 return total * porcentaje3;
             }
             else {
-                return descuento; // 12) Retorna descuento en casos de menor a 500
+                return 0; // 11) Retorna descuento en casos de menor a 500
             }
         }
     }

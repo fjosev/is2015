@@ -19,7 +19,7 @@ public class Regla4 implements IRegla{
                     }
                 }
                 if (!existe) { // 17) Se agregó negación
-                    productos.add(new ProductoDescuento(Detalle.Producto));
+                    productos.add(new ProductoDescuento(Detalle.Producto, Detalle.Cantidad)); //Se agrega la cantidad como parametro
                 }
             }
             for(ProductoDescuento productoDescuento : productos){

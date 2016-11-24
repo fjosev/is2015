@@ -1,9 +1,9 @@
 package iswtp5.model;
 public class ProductoDescuento {
     public ProductoDescuento(){}
-    public ProductoDescuento(Producto producto){
+    public ProductoDescuento(Producto producto, int cantidad){
         Producto = producto;
-        Cantidad = 1;
+        Cantidad = cantidad; // 12) Se agrego Cantidad como parametro.
     }
 
     public Producto Producto;

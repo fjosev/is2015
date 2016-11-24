@@ -18,7 +18,7 @@ public class Regla1 implements IRegla{
                     }
                 }
                 if (!existe) { // 4) Agregada la negación.
-                    productos.add(new ProductoDescuento(Detalle.Producto));
+                    productos.add(new ProductoDescuento(Detalle.Producto, Detalle.Cantidad)); //Se agrega cantida como parametro
                 }
             }
         }
