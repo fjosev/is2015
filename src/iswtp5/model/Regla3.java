@@ -8,17 +8,17 @@ public class Regla3 implements IRegla{
             ArrayList<ProductoDescuento> productos = new ArrayList<>();
             for (LineaVenta Detalle : venta.Detalle()) {
                 if ("Lacteos".equals(Detalle.Producto.Rubro.Descripcion) 
-                        && "Verduras".equals(Detalle.Producto.Rubro.Descripcion)) {
+                        && "Verduras".equals(Detalle.Producto.Rubro.Descripcion)) {// Corregir: cambiar && por ||
                     boolean existe = false;
                     for (ProductoDescuento productoDescuento : productos) {
-                        if (productoDescuento.Producto.Codigo != Detalle.Producto.Codigo) {
+                        if (productoDescuento.Producto.Codigo != Detalle.Producto.Codigo) {// Corregir: cambiar evaluación != por ==
                             existe = true;
                             productoDescuento.Cantidad += Detalle.Cantidad;
                             break;
                         }
                     }
                     if (existe) {
-                        productos.add(new ProductoDescuento(Detalle.Producto));
+                        productos.add(new ProductoDescuento(Detalle.Producto));// Poisicionar en línea 13, antes que el for.
                     }
                 }
             }
@@ -33,7 +33,7 @@ public class Regla3 implements IRegla{
                 {
                     descuento += productoDescuento.Producto.Precio * productoDescuento.Cantidad * porcentaje;
                 }
-                else 
+                else // Corregir: Eliminar else
                 {
                     descuento += productoDescuento.Producto.Precio * 4 * porcentaje;
                 }
