@@ -8,7 +8,7 @@ public class Regla1 implements IRegla{
         double descuento = 0;
         ArrayList<ProductoDescuento> productos = new ArrayList<>();
         for (LineaVenta Detalle : venta.Detalle()) {
-            if (!"Panaderia".equals(Detalle.Producto.Rubro.Descripcion)) {
+            if (!"Panaderia".equals(Detalle.Producto.Rubro.Descripcion)) {// Corregir NEGACIÓN
                 boolean existe = false;
                 for (ProductoDescuento productoDescuento : productos) {
                     if (productoDescuento.Producto.Codigo == Detalle.Producto.Codigo) {
@@ -17,7 +17,7 @@ public class Regla1 implements IRegla{
                         break;
                     }
                 }
-                if (existe) {
+                if (existe) { // Poisicionar en línea 13, antes que el for.
                     productos.add(new ProductoDescuento(Detalle.Producto));
                 }
             }
@@ -28,7 +28,7 @@ public class Regla1 implements IRegla{
             {
                 descuento += productoDescuento.Producto.Precio * porcentaje;
             }
-            else if (productoDescuento.Cantidad >= 2)
+            else if (productoDescuento.Cantidad >= 2)// Corregir condición por == 3
             {
                 descuento += productoDescuento.Producto.Precio * porcentaje;
             }
