@@ -4,7 +4,7 @@ public class Regla4 implements IRegla{
         private static final double porcentaje = 0.1d;
         @Override
         public double RealizarDescuento(Venta venta){
-            if (venta.Total() < 1000) return 0;
+            if (venta.Total() <= 1000) return 0;
 
             double descuento = 0;
             ArrayList<ProductoDescuento> productos = new ArrayList<>();
@@ -12,7 +12,7 @@ public class Regla4 implements IRegla{
             for (LineaVenta Detalle : venta.Detalle()) {
                 boolean existe = false;
                 for (ProductoDescuento productoDescuento : productos) {
-                    if (productoDescuento.Producto.Codigo != Detalle.Producto.Codigo) {
+                    if (productoDescuento.Producto.Codigo == Detalle.Producto.Codigo) {
                         existe = true;
                         productoDescuento.Cantidad += Detalle.Cantidad;
                         break;
@@ -25,7 +25,7 @@ public class Regla4 implements IRegla{
             for(ProductoDescuento productoDescuento : productos){
                 if (productoDescuento.Cantidad > 3)
                 {
-                    descuento += productoDescuento.Producto.Precio *  porcentaje;
+                    descuento += productoDescuento.Producto.Precio * productoDescuento.Cantidad * porcentaje;
                 }
             }
             return descuento;

@@ -4,10 +4,7 @@
  * and open the template in the editor.
  */
 package ISWTP5Test;
-import iswtp5.model.DiaSemana;
-import iswtp5.model.Negocio;
-import iswtp5.model.Regla2;
-import iswtp5.model.Venta;
+import iswtp5.model.*;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -94,4 +91,32 @@ public class ISWTest {
       //Validación
         assertEquals(264.55, descuento, 0.01);
     }
+
+
+    @Test
+    public void regla4VentasMenoresA1000() {
+        Venta venta;
+        venta = new Venta();
+
+        Regla4 regla4 = new Regla4();
+
+        double descuento = regla4.RealizarDescuento(venta);
+
+        assertEquals(0, descuento, 0.01);
+    }
+
+    @Test
+    public void regla4VentaMayorA1000ConDescuento() {
+        Venta venta;
+        venta = new Venta();
+        venta.AgregarDetalle(Negocio.Productos()[0], 21);   //descuento 105
+        venta.AgregarDetalle(Negocio.Productos()[1], 2);    //descuento 0
+
+        Regla4 regla4 = new Regla4();
+
+        double descuento = regla4.RealizarDescuento(venta);
+
+        assertEquals(105, descuento, 0.01);
+    }
+
 }
